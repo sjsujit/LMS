@@ -1,6 +1,4 @@
-<?php
-session_start(); 
-?>
+
 <?php
 $con=mysqli_connect("localhost","root","","goodwill");
 // Check connection
@@ -12,21 +10,20 @@ if (mysqli_connect_errno())
 
 <!doctype html>
 <html>
-<head>
-		<meta charset="UTF-8">
-		<title>Training Page</title>
-		<link rel="stylesheet" href="Training_page.css">
-</head>
+    <head>
+    		<meta name="viewport" content="width=device-width, initial-scale=1">
+    		<title>Training Page</title>
+    		<link rel="stylesheet" href="style.css">
+    </head>
 <body>
-
 	<header>
-	<img src="header." class="header">
+	<img src="header.jpeg" class="header">
 	</header>
 <h1><center>Learning Management System</center></h1>
 <nav>
 	<ul>
 		<a href="#"><li>Home</li></a>
-		<a href="#"><li>Training</li></a>
+		<a href="http://localhost/ProjectWork/Training_page.php?#"><li>Training</li></a>
 		<a href="#"><li>Contact Us</li></a>
 		<a href="#"><li>View profile</li></a>
 		<a href="#"><li>Logout</li></a>
@@ -40,7 +37,6 @@ if (mysqli_connect_errno())
     <th>Start date</th> 
     <th>End date</th>
    <th>Assign by</th>
-     
     <th>Action</th>
   </tr>   
 <?php
@@ -49,44 +45,42 @@ $result=mysqli_query($con,$sql);
 while($row=mysqli_fetch_array($result,MYSQLI_ASSOC))
 {
 ?>
-<tr>
-  <td><?php echo $row['TrainingName'];?></td>
-  <td><?php echo $row['StartDate'];?></td>
-  <td><?php echo $row['EndDate'];?></td>
-  <td></td>
-  <td><button id="myBtn" onclick = "model_MVC('1')">Start</button> </td>
-
-
-</tr>
+    <tr>
+      <td><?php echo $row['TrainingName'];?></td>
+      <td><?php echo $row['StartDate'];?></td>
+      <td><?php echo $row['EndDate'];?></td>
+      <td></td>
+      <td><button id="myBtn">Start</button></td>
+    </tr>
 <?php } ?>
+<!-- The Modal -->
+<div id="myModal" class="modal">
 
-</center>
-</table>
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p><h4>Instructions for the Training</h4></p>
+    <p>1. Once you click on the "Click here to start the Training" button,it will take you to Pre-assessment window.<br>
 
+      2. Pre-assessment consist of two questions to test you knowledge prioir to the training. Answers to all the questions are mandatory. After you answer, click on Next. It will take you to the Login page of BrickStreet.<br>
 
-<!--<table>
-  <center>
-  <tr>
-    <th>Training name</th>
-    <th>Start date</th> 
-    <th>End date</th>
-	<th>Assign by</th>
-    <th>Status</th> 
-    <th>Action</th>
-  </tr>
-  <tr>
-    <td>Conflict Resolution</td>
-	<td></td>
-    <td></td>
-	<td></td>
-    <td></td>
-	<td><button id="myBtn" onclick = "model_MVC('1')">start</button>-->
+      3.Login to the BrickStreet website with the USerame and Password and it will route you to the video.<br>
 
+      4. Complete the Video and close the window, that will take you to the Post-Assessment window.<br>
+
+      5.Post-Assessment has two questions and answer to all the questions are mandatory. This is required to test your knowlegde after the training.<br>
+
+      6. Click on Finish Button to record your training.<br>  
+      </p>
+      <form action="https://www.trainingnetworknow.com/Topics/OSHA-Compliance/Slips,-Trips,-Falls/Slips,-Trips,-And-Falls" method="get" target="_blank">
+  <input type="submit" value="Click here to start the Training">
+  
+</form>
+
+  </div>
+</div>
 <script>
 // Get the modal
-function model_MVC(param){
-
-document.getElementById("hidVal").value = param;
 var modal = document.getElementById('myModal');
 
 // Get the button that opens the modal
@@ -94,10 +88,11 @@ var btn = document.getElementById("myBtn");
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
+
 // When the user clicks the button, open the modal 
-
+btn.onclick = function() {
   modal.style.display = "block";
-
+}
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
@@ -109,96 +104,14 @@ window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
+  function myFunction() {
+  window.open("../ProjectWork/post_assessment.php");
 }
-
 }
 </script>
-<div id="myModal" class="modal">
-
-  Modal content
-  <div class="modal-content">
-    <span class="close">&times;</span>
-   <p> <h4>Instruction's for the training</h4></p>
-<p align="left">
-1. Once you click on the "Click here to start the Training" button,it will take you to Pre-assessment window.<br>
-
-2. Pre-assessment consist of two questions to test you knowledge prioir to the training. Answers to all the questions are mandatory. After you answer, click on Next. It will take you to the Login page of BrickStreet.<br>
-
-3.Login to the BrickStreet website with the USerame and Password and it will route you to the video.<br>
-
-4. Complete the Video and close the window, that will take you to the Post-Assessment window.<br>
-
-5.Post-Assessment has two questions and answer to all the questions are mandatory. This is required to test your knowlegde after the training.<br>
-
-6. Click on Finish Button to record your training.<br>  
-</p>
-<form onsubmit="page()">
-  <input type = "text" id = "hidVal" name = "hidVal" value = "" >
-<input type="submit" value="Click to start the training"  />
-<script>
-  function page(){
-  var pageID1 = document.getElementById('hidVal').value;
-  window.location.href = "../project/post_assessment.php?pageID="+pageID1;
-  }
-  </script>
-</form>
-    </p>
-  </div>
-
-</div>
-<!--
-</td>
-    
-  </tr>
-  <tr>
-    <td>Customer Violence in Retail</td>
-    <td></td>
-    <td></td>
-	<td></td>
-    <td></td>
-	<td><button id="myBtn" onclick = "model_MVC('2')">start</button></td>
-    
-  </tr>
-  <tr>
-    <td>Discrimination in the Workplace</td>
-    <td></td>
-    <td></td>
-	<td></td>
-    <td></td>
-	<td><button id="myBtn" onclick = "model_MVC('3')">start</button></td>
-    
-  </tr>
-  <tr>
-    <td>Drug-Free Workplace</td>
-    <td></td>
-    <td></td>
-	<td></td>
-    <td></td>
-	<td><button id="myBtn" onclick = "model_MVC('4')">start</button></td>
-	
-  </tr>
-  <tr>
-    <td>Sexual Harassment and Discrimination</td>
-    <td></td>
-    <td></td>
-	<td></td>
-    <td></td>
-	<td><button id="myBtn" onclick = "model_MVC('5')">start</button></td>
-    
-  </tr>
-  <tr>
-    <td>Violence in the Workplace</td>
-    <td></td>
-    <td></td>
-	<td></td>
-    <td></td>
-	<td><button id="myBtn" onclick = "model_MVC('6')">start</button></td>
-    
-  </tr>
-  </center>
-</table>-->
+</center>
+</table>
 </article>
-
 <footer>
   <img src="footer.jpeg" class="footer">
 </footer>

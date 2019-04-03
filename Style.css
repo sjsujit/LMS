@@ -1,0 +1,209 @@
+/* Main pages Css*/
+header
+{
+	margin: 0px;
+	padding-top: 90px;
+	padding-left: 190px;
+	background-image: url("header-1.png");
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+	width: auto;
+
+
+}
+
+.Menu
+{
+	padding-top:   50px;
+	padding-left:  110px;
+	padding-right: 60px;
+	overflow: hidden;
+	font-family: Arial;
+}
+
+.Menu a 
+{
+	padding-left: 20px;
+	padding-right: 20px;
+	font-size: 21px;
+	float: left;
+	color: black;
+	text-align: center;
+	text-decoration: none;
+
+}
+.Menu a.active
+{
+	border-bottom-style: solid;
+	border-bottom-color: #a7cf3a;
+	border-margin-left: 5px;
+}
+.event
+{
+	margin-bottom: 40px;
+}
+
+.main_body
+{
+	margin-left: 0px;
+	padding: 1px 1px;
+	height: 1000px;
+	background-color: #eeeeee;
+}
+.top_bar
+{
+	margin-left: 80%;
+}
+/* The side navigation menu */
+.sidebar {
+	margin-top: 80px;
+	width: 200px;
+	float: left;
+	height: 800px;
+	background-color: #eeeeee;
+}
+/* Sidebar links */
+
+.sidebar a {
+	background-color: #eeeeee; /* Grey background color */
+	display: block; /* Make the links appear below each other */
+	padding: 12px; /* Add some padding */
+	text-decoration: none; /* Remove underline from links */
+	font-size: 18px;
+	color: #818181;
+	display: block;
+}
+
+/* Active/current link */
+.sidebar a.active {
+	background-color: #4CAF50;
+	color: white;
+}
+
+/* Links on mouse-over */
+.sidebar a:hover:not(.active) {
+	background-color: #555;
+	color: white;
+}
+
+/* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+div.content {
+	text-align: center;
+	margin-left: 210px;
+}
+.content_body
+{
+	width: 90%;
+}
+div.content_body
+{
+	height: 718px;
+	background-color: white;
+	border: solid;
+}
+.content_body p
+{
+	font-size: 21px;
+	text-align: left;
+	padding-left: 4%;
+	padding-right: 4%;
+	float: left;
+}
+.userprofile_body
+{
+	height: 718px;
+	background-color: white;
+	border: solid;
+	position: absolute;
+	width: 80%;
+	font-size: 21px;
+	text-align: justify;
+	padding-left: 4%;
+	padding-right: 4%;
+	float: left;
+}
+/* On screens that are less than 700px wide, make the sidebar into a topbar */
+@media screen and (max-width: 700px) {
+	.sidebar {
+		width: 100%;
+		height: auto;
+		position: relative;
+	}
+	.sidebar a {float: left;}
+	div.content {margin-left: 0;}
+}
+
+/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+@media screen and (max-width: 400px) {
+	.sidebar a {
+		text-align: center;
+		float: none;
+	}
+}
+
+/*CSS FOR LOGIN PAGE*/
+
+.login
+{
+		padding: 50px;
+		margin-left: 20%;
+		margin-right: 20%;
+		width: 50%;
+		text-align: center;
+}
+@font-face {
+  font-family: claire;
+  src: url(claire.ttf);
+}
+#loginmsg
+{
+	text-align: center;
+	font-size: 36px;
+	font-family: Arial;
+	margin-bottom: 20px;
+}
+.input-group
+{
+	margin-left: 25%;
+	width: 50%;
+}
+#loginfield
+{
+	margin-bottom: 10px;
+}
+.button
+{
+	background-color: #4CAF50;
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	cursor: pointer;
+	border-radius: 8px;
+	width: 40%;
+}
+.button:hover
+{
+  	opacity: 0.8;
+}
+
+/* Tables Style */
+table {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 70%;
+	margin-left: 1%;
+}
+td, th
+{
+	border: 1px solid #dddddd;
+	text-align: center;
+	font-size: 21px;
+	padding: 2%;
+	margin: auto;
+}
+
+
+
+
+
